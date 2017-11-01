@@ -18,7 +18,12 @@ export class FavoriteComponent implements OnInit {
   onClick() {
     console.log("OnClick method triggered")
     this.isFavorite.isSelected = !this.isFavorite.isSelected;
-    this.change.emit(this.isFavorite.isSelected);
+    this.change.emit({newValue: this.isFavorite.isSelected, name: 'test'});
   }
 
+}
+
+export interface FavoriteChangeEventArgs {
+  newValue: boolean;
+  name: String;
 }
