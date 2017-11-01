@@ -7,11 +7,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FavoriteComponent implements OnInit {
 
-  @Input() sampleObject;
+  @Input() isFavorite;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClick() {
+    console.log("OnClick method triggered")
+    this.isFavorite.isSelected = !this.isFavorite.isSelected;
   }
 
 }

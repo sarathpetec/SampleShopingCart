@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  sampleObject = {
+  isFavorite = {
     title: "Angular Application",
-    isSelected: false
+    isSelected: true
   };
 }

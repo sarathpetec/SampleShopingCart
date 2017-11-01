@@ -1,4 +1,12 @@
 <p>
-  favorite title! :{{sampleObject.title}}<br/>
-  favorite isSelected! :{{sampleObject.isSelected}}
+  favorite title! :{{isFavorite.title}}<br/>
+  favorite isSelected! :{{isFavorite.isSelected}}
 </p>
+
+<span
+  class="glyphicon"
+  [class.glyphicon-star]="isFavorite"
+  [class.glyphicon-star-empty]="!isFavorite.isSelected"
+  (click)="onClick()"
+></span>
+
