@@ -10,7 +10,7 @@ export class AppComponent {
     title: "Angular Application",
     isSelected: true
   };
-  onFavoriteChange() {
-    console.log("OnFavoriteChange triggered");
+  onFavoriteChange(isSelectes: boolean) {
+    console.log("OnFavoriteChange triggered", isSelectes);
   }
 }
