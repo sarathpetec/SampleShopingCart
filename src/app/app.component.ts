@@ -16,4 +16,9 @@ export class AppComponent {
   }
 
   courses = [1,2];
+  viewMode: String = "map";
+
+  onClick(){
+    console.log("Mode Value: "+ this.viewMode)
+  }
 }

@@ -2,10 +2,28 @@
 <courses></courses>
 <favorite [isFavorite] = "isFavorite" (change) ="onFavoriteChange($event)"></favorite>
 
-
-<div *ngIf="courses.length > 0">
+<br/>
+<div *ngIf="courses.length > 0; then courseList else noCourses">
+</div>
+<ng-template #courseList>
+  List of courses : {{courses}}
+</ng-template>
+<ng-template #noCourses>
+  1.No courses Yet
+</ng-template>
+<div [hidden]="courses.length == 0">
   List of courses
 </div>
-<div *ngIf="courses.length == 0">
+<div [hidden]="courses.length > 0">
   No courses Yet
+</div>
+
+<ul class="nav nav-pills">
+  <li [class.active]="viewMode == 'map'"><a (click) ="viewMode = 'map'">Map View</a></li>
+  <li [class.active]="viewMode == 'list'"><a (click) ="viewMode = 'list'">List View</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map view Content</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchDefault>OtherWise</div>
 </div>
