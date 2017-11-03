@@ -14,4 +14,6 @@ export class AppComponent {
   onFavoriteChange(isSelectes: FavoriteChangeEventArgs) {
     console.log("OnFavoriteChange triggered", isSelectes);
   }
+
+  courses = [1,2];
 }

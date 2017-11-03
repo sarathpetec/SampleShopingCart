@@ -1,3 +1,11 @@
 <h1>Angular</h1>
 <courses></courses>
 <favorite [isFavorite] = "isFavorite" (change) ="onFavoriteChange($event)"></favorite>
+
+
+<div *ngIf="courses.length > 0">
+  List of courses
+</div>
+<div *ngIf="courses.length == 0">
+  No courses Yet
+</div>
