@@ -27,3 +27,10 @@
   <div *ngSwitchCase="'list'">List View Content</div>
   <div *ngSwitchDefault>OtherWise</div>
 </div>
+<button class="btn btn-success" (click)="AddCourse()">Add Course</button>
+<ul>
+  <li *ngFor="let course of courseObject; index as i">
+   Index: {{ i }} ,ID: {{ course.id }} Name: {{ course.name }}
+    <button class="btn btn-danger" (click)="removeCourse(course)">Remove Course</button>
+  </li>
+</ul>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FavoriteChangeEventArgs} from './favorite/favorite.component';
 
 @Component({
@@ -8,17 +8,36 @@ import {FavoriteChangeEventArgs} from './favorite/favorite.component';
 })
 export class AppComponent {
   isFavorite = {
-    title: "Angular Application",
+    title: 'Angular Application',
     isSelected: true
   };
-  onFavoriteChange(isSelectes: FavoriteChangeEventArgs) {
-    console.log("OnFavoriteChange triggered", isSelectes);
+
+  courses = [1, 2];
+  viewMode: String = 'map';
+  courseObject = [
+    {id: 1, name: 'course-1'},
+    {id: 3, name: 'course-2'},
+    {id: 2, name: 'course-3'}
+  ];
+
+  onClick() {
+    console.log('Mode Value: ' + this.viewMode);
   }
 
-  courses = [1,2];
-  viewMode: String = "map";
+  onFavoriteChange(isSelectes: FavoriteChangeEventArgs) {
+    console.log('OnFavoriteChange triggered', isSelectes);
+  }
 
-  onClick(){
-    console.log("Mode Value: "+ this.viewMode)
+  AddCourse() {
+    const courseLength = this.courseObject.length + 1;
+    this.courseObject.push(
+      {id: courseLength, name: 'course-' + courseLength}
+    );
+  }
+
+  removeCourse(course) {
+    const index = this.courseObject.indexOf(course);
+    console.log('index: '+ index);
+    this.courseObject.splice(index, 1);
   }
 }
