@@ -37,7 +37,11 @@ export class AppComponent {
 
   removeCourse(course) {
     const index = this.courseObject.indexOf(course);
-    console.log('index: '+ index);
+    console.log('index: ' + index);
     this.courseObject.splice(index, 1);
+  }
+
+  courseTrackBy(index, courseObject) {
+    return courseObject ? courseObject.id : undefined;
   }
 }
