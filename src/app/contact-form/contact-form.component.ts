@@ -12,6 +12,11 @@ export class ContactFormComponent {
     {id: 2, name: 'phone'}
     ];
 
+  genderList = [
+    {id: 1, gender: 'Male'},
+    {id: 2, gender: 'Female'}
+  ];
+
   log(x) {
     console.log(x);
   }
