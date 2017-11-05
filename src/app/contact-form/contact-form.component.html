@@ -21,7 +21,7 @@
   <div class="form-group">
     <label for="contactMethods">Contact Methods</label>
     <select ngModel name="contactMethods" id="contactMethods" class="form-control">
-      <option *ngFor="let method of contactMethods" [value]=" method.id">{{ method.name }}</option>
+      <option *ngFor="let method of contactMethods" [ngValue]=" method">{{ method.name }}</option>
     </select>
   </div>
   <p>
