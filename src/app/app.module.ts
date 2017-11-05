@@ -10,6 +10,7 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import {SignupFormComponent} from './signup-form/signup-form.component';
+import { NewcourseformComponent } from './newcourseform/newcourseform.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {SignupFormComponent} from './signup-form/signup-form.component';
     FavoriteComponent,
     InputFormatDirective,
     ContactFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    NewcourseformComponent
   ],
   imports: [
     BrowserModule,
