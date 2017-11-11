@@ -13,6 +13,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import {SignupFormComponent} from './signup-form/signup-form.component';
 import { NewcourseformComponent } from './newcourseform/newcourseform.component';
 import { PostsComponent } from './posts/posts.component';
+import {PostService} from './services/post.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PostsComponent } from './posts/posts.component';
     HttpModule
   ],
   providers: [
-    CoursesService
+    CoursesService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })

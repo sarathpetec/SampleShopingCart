@@ -1,5 +1,15 @@
+<input type="text" class="form-control" (keyup.enter)="createPost(title)" #title>
+
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let post of posts">
+    <div *ngIf="post.isRead === true; then isReadSuccess else isReadFail"></div>
+    <ng-template #isReadSuccess>
+      <button class="btn btn-sm btn-success" (click)="readPost(post)">Read</button>
+    </ng-template>
+    <ng-template #isReadFail>
+      <button #isReadFail class="btn btn-sm btn-danger" (click)="readPost(post)">UnRead</button>
+    </ng-template>
+    <button class="btn btn-sm btn-danger" (click)="deletePost(post)">Delete</button>
     {{ post.title }}
   </li>
 </ul>
