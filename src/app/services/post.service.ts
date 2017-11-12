@@ -20,21 +20,21 @@ export class PostService {
   }
 
   createPost(inputPost) {
-    return this.http.post(this.url, JSON.stringify(inputPost)).catch((error: Response) => {
-      if (error.status === 400) {
-        return Observable.throw(new BadInputError(error.json()));
-      }
-      return Observable.throw(new AppError(error));
-    });
+    return this.http.post(this.url, JSON.stringify(inputPost)).catch(this.handleException);
   }
 
   deletePost(id) {
-    return this.http.delete(this.url + '/' + id).catch((error: Response) => {
-      if (error.status === 404) {
-        return Observable.throw(new NotFoundError(error));
-      }
-      return Observable.throw(new AppError(error));
-    });
+    return this.http.delete(this.url + '/' + id).catch(this.handleException);
+  }
+
+  private handleException(error: Response) {
+    if (error.status === 400) {
+      return Observable.throw(new BadInputError(error.json()));
+    }
+    if (error.status === 404) {
+      return Observable.throw(new NotFoundError(error));
+    }
+    return Observable.throw(new AppError(error));
   }
 
 }
