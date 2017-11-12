@@ -39,3 +39,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+src/app/exceptions/app-error.js
+src/app/exceptions/bad-input-error.js
+src/app/exceptions/not-found-error.js
+src/app/posts/posts.component.js
+src/app/services/data.service.js
+src/app/services/post.service.js
