@@ -1,3 +1,43 @@
-<p>
-  course works!
-</p>
+<h1>Angular</h1>
+<courses></courses>
+<favorite [isFavorite] = "isFavorite" (change) ="onFavoriteChange($event)"></favorite>
+
+<br/>
+<div *ngIf="courses.length > 0; then courseList else noCourses">
+</div>
+<ng-template #courseList>
+  List of courses : {{courses}}
+</ng-template>
+<ng-template #noCourses>
+  1.No courses Yet
+</ng-template>
+<div [hidden]="courses.length == 0">
+  List of courses
+</div>
+<div [hidden]="courses.length > 0">
+  No courses Yet
+</div>
+
+<ul class="nav nav-pills">
+  <li [class.active]="viewMode == 'map'"><a (click) ="viewMode = 'map'">Map View</a></li>
+  <li [class.active]="viewMode == 'list'"><a (click) ="viewMode = 'list'">List View</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map view Content</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchDefault>OtherWise</div>
+</div>
+<button class="btn btn-success" (click)="AddCourse()">Add Course</button>
+<ul>
+  <li *ngFor="let course of courseObject; index as i; trackBy: courseTrackBy">
+    Index: {{ i }} ,ID: {{ course.id }} Name: {{ course.name }}
+    <button class="btn btn-danger" (click)="removeCourse(course)">Remove Course</button>
+  </li>
+</ul>
+<input [appInputFormat] = "'lowercase'">
+<app-contact-form></app-contact-form>
+<signup-form></signup-form>
+<br>
+<app-newcourseform></app-newcourseform>
+<br>
+<app-posts></app-posts>
