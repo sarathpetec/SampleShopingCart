@@ -1,6 +1,6 @@
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {CourcesComponent} from './cources.component';
@@ -14,6 +14,7 @@ import {SignupFormComponent} from './signup-form/signup-form.component';
 import { NewcourseformComponent } from './newcourseform/newcourseform.component';
 import { PostsComponent } from './posts/posts.component';
 import {PostService} from './services/post.service';
+import {AppGlobalError} from './exceptions/app-global-error';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {PostService} from './services/post.service';
   ],
   providers: [
     CoursesService,
-    PostService
+    PostService,
+    { provide: ErrorHandler, useClass: AppGlobalError }
   ],
   bootstrap: [AppComponent]
 })

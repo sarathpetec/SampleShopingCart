@@ -21,9 +21,6 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     this.service.getPost().subscribe(response => {
       this.posts = response.json();
-    }, error => {
-      alert('An UnExpected Error Occurred.');
-      console.log('Error Occurred: ' + error);
     });
   }
 
@@ -39,14 +36,13 @@ export class PostsComponent implements OnInit {
           alert('Bad Request Exception');
           console.log('Bad Request Exception Error Occurred: ' + error);
         } else {
-          alert('An UnExpected Error Occurred.');
-          console.log('Error Occurred: ' + error);
+          throw error;
         }
       });
   }
 
   deletePost(inputPost: HTMLInputElement) {
-    this.service.deletePost(356).subscribe(response => {
+    this.service.deletePost(inputPost.id).subscribe(response => {
       const index = this.posts.indexOf(inputPost);
       this.posts.splice(index, 1);
     }, (error: AppError) => {
@@ -54,8 +50,7 @@ export class PostsComponent implements OnInit {
         alert('This Post has already been deleted.');
         console.log('This Post has already been deleted');
       } else {
-        alert('An UnExpected Error Occurred.');
-        console.log('Error Occurred: ' + error);
+       throw error;
       }
     });
   }
